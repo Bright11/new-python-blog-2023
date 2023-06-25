@@ -1,0 +1,21 @@
+<nav class="nav">
+	{% load static %}
+	<a class="sitelogo" href="">
+		<img src="{% static 'logo/mylogo.jpg' %}" alt="">
+	</a>
+	<ul>
+		<li><a href="/">Home</a></li>
+		
+		{% if user.is_authenticated %}
+		<li><a href="{% url 'blogpost:addcategory' %}">Add Category</a></li>
+		<li><a href="{% url 'blogpost:addblog' %}">Add blog</a></li>
+			<li><a href="{% url 'usersapp:userlogout' %}">Logout</a></li>
+			{% else %}
+			<li><a href="{% url 'usersapp:signin' %}">Login</a></li>
+			<li><a href="{% url 'usersapp:signup' %}">Register</a></li>
+		{% endif %}
+			
+		
+		
+	</ul>
+</nav>

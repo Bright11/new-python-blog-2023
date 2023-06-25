@@ -1,0 +1,99 @@
+{% extends 'layout/based.html' %}
+{% block title %}{{getpost.title}}{% endblock  %}
+
+{% block content %}
+<div class="homepage">
+	<div class="container_home">
+		<section class="blogpostcontainer">
+			<div class="maincontentholderdetails">
+	
+		
+			
+				<div class="postholderdetails">
+					{% if getpost.image %}
+					<div class="blogimgdivdetails" style="background-image: url({{ getpost.image.url }});">
+						
+					</div>
+				{% endif %}
+					
+			<div class="blog_holderdvdetails">
+				<h1>{{getpost.title}}</h1>
+				<p>{{ getpost.post }}</p>
+			</div>
+				</div>
+		
+		
+			
+		</div>
+		</section>
+{% comment %} END OF MAINCONTENT {% endcomment %}
+		<section class="leftbar">
+		<div class="social_media">
+			<h1>Follow us on social media</h1>
+			<div class="socialline">
+				<div class="sociallineinner"></div>
+			</div>
+			{% comment %} social media {% endcomment %}
+			<div class="iconholder">
+				<div class="icons">
+					<div class="iconsdiv facebook">
+					<a href="">
+						<i class="fa fa-facebook-square" style="font-size:25px"></i>
+					<h3>Facebook</h3>
+					</a>
+				</div>
+				<div class="iconsdiv twitter">
+					<a href="">
+						<i class="fa fa fa-twitter-square" style="font-size:25px"></i>
+					<h3>Twitter</h3>
+					</a>
+				</div>
+				<div class="iconsdiv instagram">
+					<a href="">
+						<i class="fa fa fa fa-instagram" style="font-size:25px"></i>
+					<h3>Instagram</h3>
+					</a>
+				</div>
+				<div class="iconsdiv youtube">
+					<a href="">
+						<i class="fa fa 	fa fa-youtube-play" style="font-size:25px"></i>
+					<h3>Youtube</h3>
+					</a>
+				</div>
+				</div>
+			</div>
+		</div>
+			{% comment %} the end {% endcomment %}
+		<div class="newslatterdivider"></div>
+		{% comment %} subscribe forms {% endcomment %}
+		<form action="{% url 'blogpost:subscribenow' %}" class="subscribeform" method="post">
+			{% csrf_token %}
+			<p>Subscribe to our mailing list to get the new updates.</p>
+			{{subscribe.newslatter}}
+			<button>Subscrib</button>
+		</form>
+		{% comment %} the end {% endcomment %}
+		{% comment %} categories {% endcomment %}
+		<div class="category">
+			<div class="newslatterdivider categorydidver">
+				<div class="catedidvercolor"></div>
+			</div>
+			
+				{% for c in categories %}
+				<a href="" class="categorylink">
+					<h3>{{c.name}}</h3>
+					<small>({{c.category.count}})</small>
+				
+				</a>
+			
+			{% endfor %}
+		
+			
+		</div>
+		{% comment %} the end of categories {% endcomment %}
+	</section>
+	{% comment %} end of sidebar {% endcomment %}
+	</div>
+	
+</div>
+{% endblock  %}

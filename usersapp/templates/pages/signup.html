@@ -1,0 +1,31 @@
+{% extends 'layout/based.html' %}
+
+{% block title %}{{title}}{% endblock  %}
+
+{% block content %}
+<div class="singupdiv">
+	<form action="" method="post">
+		{% csrf_token %}
+		<label for="">User name</label>
+		{{signupforms.username}}
+		<label for="">Email</label>
+		{{signupforms.email}}
+		<label for="">Password</label>
+		{{signupforms.password1}}
+		<label for="">Confirm password</label>
+		{{signupforms.password2}}
+
+		<button type="submit">Signup</button>
+		{% if signupforms.errors or signupforms.non_field_errors %}
+		<div class="error">
+			{% for field in signupforms  %}
+			{{field.errors}}
+		{% endfor %}
+		{{signupforms.non_field_errors}}
+		</div>
+			
+		{% endif %}
+	</form>
+</div>
+
+{% endblock  %}

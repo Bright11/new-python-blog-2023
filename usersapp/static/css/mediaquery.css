@@ -1,0 +1,21 @@
+@media only screen and (max-width: 600px) {
+	.postholderdetails {
+			width: 90vw;
+		}
+				.postholderdetails {
+					width: 90vw;
+				}
+}
+
+
+@media only screen and (max-width: 768px) {
+.blogimgdivdetails {
+		width: 100%;
+		
+		
+	}
+	/* For mobile phones: */
+.postholderdetails {
+		width: 90vw;
+	}
+}

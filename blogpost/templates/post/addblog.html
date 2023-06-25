@@ -1,0 +1,21 @@
+{% extends 'layout/based.html' %}
+
+{% block title %}{{title}}{% endblock  %}
+
+
+{% block content %}
+<div class="addblogpage">
+	<form action="" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		<label for="">Blog Titel</label>
+		{{postform.title}}
+		<label for="">Blog Category</label>
+		{{postform.category}}
+		<label for="">Blog post</label>
+		{{postform.post}}
+		<label for="">Blog image</label>
+		{{postform.image}}
+		<button>Create</button>
+	</form>
+</div>
+{% endblock  %}
